@@ -124,7 +124,7 @@ Coefficients:
 没有相关性
 
 ### 一阶段成绩~二阶段极差
-![](Q3一阶段极差~二阶段极差.png)
+![](Q3一阶段成绩~二阶段极差.png)
 ```
 Residuals:
     Min      1Q  Median      3Q     Max 
