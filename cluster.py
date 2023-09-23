@@ -10,8 +10,6 @@ def save(filename, obj):
     pickle.dump(obj, f)
     f.close()
 
-save('denseUserVecs.pkl', svd.denseUserVecs)
-
 def cluster(infered_vectors_list, n_clusters):
     kmean_model = KMeans(n_clusters=n_clusters)
     kmean_model.fit(infered_vectors_list)

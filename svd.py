@@ -122,4 +122,11 @@ for index, row in df.iterrows():
         dfData.append(rowData)
 
 U, S, V = np.linalg.svd(sparseUserVecs.toMat())
+U = U * S
+
+from sklearn.decomposition import PCA
+pca = PCA(n_components=50)
+pca.fit(U)
+U = pca.fit_transform(U)
+
 denseUserVecs = sparseUserVecs.matToNewUserVecs(U)
