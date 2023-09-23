@@ -113,13 +113,13 @@ Q3
 ![](Q3一阶段极差~二阶段极差.png)
 ```
 Residuals:
-    Min      1Q  Median      3Q     Max 
--54.436 -19.215  -4.054  16.139  83.258 
+     Min       1Q   Median       3Q      Max 
+-10.7624  -4.6109  -0.3869   4.0611  24.6541 
 
 Coefficients:
-                     Estimate Std. Error t value Pr(>|t|)    
-(Intercept)           199.503      3.761  53.041   <2e-16 ***
-第二次评审标准分极差   -0.220      0.270  -0.815    0.416    
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   14.96685    3.07971   4.860 2.13e-06 ***
+df$一阶段极差 -0.01265    0.01552  -0.815    0.416 
 ```
 没有相关性
 
@@ -128,13 +128,51 @@ Coefficients:
 ```
 Residuals:
     Min      1Q  Median      3Q     Max 
--13.833  -5.270  -1.820   4.281  29.407 
+-12.066  -4.727  -0.305   4.279  23.633 
 
 Coefficients:
-                     Estimate Std. Error t value Pr(>|t|)    
-(Intercept)          97.80602    1.14373  85.515   <2e-16 ***
-第二次评审标准分极差  0.06828    0.08210   0.832    0.406    
+              Estimate Std. Error t value Pr(>|t|)
+(Intercept)    8.29163    5.05049   1.642    0.102
+df$一阶段成绩  0.04244    0.05103   0.832    0.406
 ```
 没有相关性
 
-### 一阶段成绩~二阶段成绩
+### 一阶段极差~最终成绩
+![](Q3最终成绩~一阶段极差.png)
+```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-11.195  -3.103  -1.283   0.052  33.581 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   18.367111   1.218596   15.07   <2e-16 ***
+df$一阶段极差  0.932871   0.005386  173.19   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 5.924 on 883 degrees of freedom
+Multiple R-squared:  0.9714,	Adjusted R-squared:  0.9714 
+F-statistic: 3e+04 on 1 and 883 DF,  p-value: < 2.2e-16
+```
+显著正相关，说明（有二阶段的情况下）一阶段极差大的优秀
+
+### 一阶段成绩~最终成绩
+![](Q3最终成绩~一阶段成绩.png)
+```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-53.078  -8.282   9.273  11.390  14.605 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     6.5293     4.2825   1.525    0.128    
+df$一阶段成绩   2.3239     0.0448  51.871   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 17.41 on 883 degrees of freedom
+Multiple R-squared:  0.7529,	Adjusted R-squared:  0.7526 
+F-statistic:  2691 on 1 and 883 DF,  p-value: < 2.2e-16
+```
+大体正相关，但是一阶段成绩比较大的作品里有一批最终成绩相对低，说明一阶段成绩不能完全反应作品品质（可能一阶段成绩是虚高的）
