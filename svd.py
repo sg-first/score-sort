@@ -87,6 +87,9 @@ class dfRow:
             sum += score
         return sum
 
+    def outputAllScore(self):
+        print(self.allScore[0][1], self.allScore[1][1], self.allScore[2][1])
+
 sparseUserVecs = userVecs()
 dfData = []
 
@@ -118,7 +121,7 @@ for index, row in df.iterrows():
     bSecondReview = bSecondReview and rowData.addScore(row['专家二编码（二）'], row['专家二原始分（二）'])
     bSecondReview = bSecondReview and rowData.addScore(row['专家三编码（二）'], row['专家三原始分（二）'])
     if bSecondReview:
-        print(rowData.rank, rowData.allScore)
+        # print(rowData.rank, rowData.allScore)
         dfData.append(rowData)
 
 U, S, V = np.linalg.svd(sparseUserVecs.toMat())
