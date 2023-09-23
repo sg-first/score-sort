@@ -95,7 +95,10 @@ def getRankDict(dfData):
     nowRank = 1
     for row in dfData:
         rankDict[nowRank] = row.getLastScore()
-        nowRank += 1
+        if nowRank == 23:
+            break
+        else:
+            nowRank += 1
     return rankDict
 
 for index, row in df.iterrows():
