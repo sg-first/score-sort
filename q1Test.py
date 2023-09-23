@@ -34,7 +34,7 @@ print('中位数', np.median(intNums))
 print('极差', max(intNums) - min(intNums))
 
 plt.ylim(60, 160)
-plt.bar(selectNum.keys(), selectNum.values(), )
+plt.bar(selectNum.keys(), selectNum.values())
 plt.show()
 plt.hist(intNums, bins=80)
 plt.show()
