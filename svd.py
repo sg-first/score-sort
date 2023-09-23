@@ -119,11 +119,4 @@ for index, row in df.iterrows():
         dfData.append(rowData)
 
 U, S, V = np.linalg.svd(sparseUserVecs.toMat())
-print('S')
-print(S)
-print('V')
-print(V.shape)
-print('U')
-print(U[0])
-
 denseUserVecs = sparseUserVecs.matToNewUserVecs(U)

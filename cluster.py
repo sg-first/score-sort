@@ -20,7 +20,7 @@ def cluster(infered_vectors_list, n_clusters):
 
 labels, centers = cluster(svd.U, 2)
 print(labels)
-save('centers.pkl', svd.denseUserVecs)
+save('centers.pkl', centers)
 
 # 将labels转换到对应专家
 userList = list(svd.sparseUserVecs.data.keys())
