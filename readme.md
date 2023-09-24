@@ -220,7 +220,7 @@ Residual standard error: 7.761 on 1498 degrees of freedom
 Multiple R-squared:  0.05954,	Adjusted R-squared:  0.05891 
 F-statistic: 94.83 on 1 and 1498 DF,  p-value: < 2.2e-16
 ```
-有一定负相关性，可能说明一阶段成绩越高的的作品在二阶段争议越小；一阶段成绩越低的作品在二阶段争议越大。说明一阶段评分是比较中规中矩的
+有一定负相关性，可能说明一阶段成绩越高的的作品在二阶段争议越小；一阶段成绩越低的作品在二阶段争议越大。说明一阶段评分是比较中规中矩的。由于回归线上的部分离散程度大，所以后者效应是相对不明显的，前者更明显
 
 #### 一阶段极差~最终成绩
 ![](Q3最终成绩~一阶段极差2.png)
@@ -241,7 +241,7 @@ Residual standard error: 7.534 on 1498 degrees of freedom
 Multiple R-squared:  0.8876,	Adjusted R-squared:  0.8875 
 F-statistic: 1.183e+04 on 1 and 1498 DF,  p-value: < 2.2e-16
 ```
-显著正相关
+显著正相关，说明一阶段争议越大的最终成绩越好（有二阶段的情况下，一阶段争议大往往说明优秀）
 
 #### 一阶段成绩~最终成绩
 ![](Q3最终成绩~一阶段成绩2.png)
