@@ -98,7 +98,8 @@ U'_i = U_i⊙S
 评估
 --------
 由于题里说了**一等奖作品排序是准确的**（按复议分算的）。所以标准分计算方法好坏的评估标准为**按该标准分产生的排序与一等奖作品排序的一致程度**。我们以新排序和正确排序之差的绝对值之和（此处应有公式）衡量。
-* 题中所给出的标准分，该指标为120
+* 题中所给出的标准分，该指标为120（baseline）
+* 题中所给出的原始分，该指标为140（baseline）
 * SVD得到的稠密特征向量的修正结果，该指标为114（完整的修正结果在`Q2修正结果.xlsx`）
 * 自编码器得到的稠密特征向量的修正结果，该指标为128
 
@@ -109,7 +110,8 @@ Q3
 ------------
 用线性回归看看相关性
 
-### 一阶段极差~二阶段极差
+### 数据2.1
+#### 一阶段极差~二阶段极差
 ![](Q3一阶段极差~二阶段极差.png)
 ```
 Residuals:
@@ -123,7 +125,7 @@ df$一阶段极差 -0.01265    0.01552  -0.815    0.416
 ```
 没有相关性
 
-### 一阶段成绩~二阶段极差
+#### 一阶段成绩~二阶段极差
 ![](Q3一阶段成绩~二阶段极差.png)
 ```
 Residuals:
@@ -137,7 +139,7 @@ df$一阶段成绩  0.04244    0.05103   0.832    0.406
 ```
 没有相关性
 
-### 一阶段极差~最终成绩
+#### 一阶段极差~最终成绩
 ![](Q3最终成绩~一阶段极差.png)
 ```
 Residuals:
@@ -157,7 +159,7 @@ F-statistic: 3e+04 on 1 and 883 DF,  p-value: < 2.2e-16
 ```
 显著正相关，说明（有二阶段的情况下）一阶段极差大的优秀
 
-### 一阶段成绩~最终成绩
+#### 一阶段成绩~最终成绩
 ![](Q3最终成绩~一阶段成绩.png)
 ```
 Residuals:
@@ -176,3 +178,89 @@ Multiple R-squared:  0.7529,	Adjusted R-squared:  0.7526
 F-statistic:  2691 on 1 and 883 DF,  p-value: < 2.2e-16
 ```
 大体正相关，但是一阶段成绩比较大的作品里有一批最终成绩相对低，说明一阶段成绩不能完全反应作品品质（可能一阶段成绩是虚高的）
+
+### 数据2.2
+#### 一阶段极差~二阶段极差
+![](Q3一阶段极差~二阶段极差2.png)
+```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-16.893  -5.474  -0.694   4.695  47.106 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   36.813240   1.614322   22.80   <2e-16 ***
+df$一阶段极差 -0.113050   0.008155  -13.86   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.534 on 1498 degrees of freedom
+  (因为不存在，7829个观察量被删除了)
+Multiple R-squared:  0.1137,	Adjusted R-squared:  0.1131 
+F-statistic: 192.2 on 1 and 1498 DF,  p-value: < 2.2e-16
+```
+有一定负相关性，说明存在部分作品实际比较好，但在一阶段被埋没了（同时也存在反过来的）
+
+#### 一阶段成绩~二阶段极差
+![](Q3一阶段成绩~二阶段极差2.png)
+```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-16.376  -5.693  -0.660   4.852  49.486 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   46.12174    3.24347  14.220   <2e-16 ***
+df$一阶段成绩 -0.31325    0.03217  -9.738   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.761 on 1498 degrees of freedom
+  (因为不存在，7829个观察量被删除了)
+Multiple R-squared:  0.05954,	Adjusted R-squared:  0.05891 
+F-statistic: 94.83 on 1 and 1498 DF,  p-value: < 2.2e-16
+```
+有一定负相关性，可能说明一阶段成绩越高的的作品在二阶段成绩越统一，说明一阶段评分是比较中规中矩的
+
+#### 一阶段极差~最终成绩
+![](Q3最终成绩~一阶段极差2.png)
+```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-16.893  -5.474  -0.694   4.695  47.106 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   36.813240   1.614322    22.8   <2e-16 ***
+df$一阶段极差  0.886950   0.008155   108.8   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 7.534 on 1498 degrees of freedom
+  (因为不存在，7829个观察量被删除了)
+Multiple R-squared:  0.8876,	Adjusted R-squared:  0.8875 
+F-statistic: 1.183e+04 on 1 and 1498 DF,  p-value: < 2.2e-16
+```
+显著正相关
+
+#### 一阶段成绩~最终成绩
+![](Q3最终成绩~一阶段成绩2.png)
+```
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-37.945  -6.703   0.118   6.423  38.485 
+
+Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   -113.97513    4.16959  -27.34   <2e-16 ***
+df$一阶段成绩    3.23027    0.04135   78.12   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 9.977 on 1498 degrees of freedom
+  (因为不存在，7829个观察量被删除了)
+Multiple R-squared:  0.8029,	Adjusted R-squared:  0.8028 
+F-statistic:  6102 on 1 and 1498 DF,  p-value: < 2.2e-16
+```
+显著正相关
+
