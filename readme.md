@@ -136,15 +136,22 @@ F-statistic:  5.99 on 1 and 238 DF,  p-value: 0.01511
 ![](Q3一阶段成绩~二阶段极差.png)
 ```
 Residuals:
-    Min      1Q  Median      3Q     Max 
--12.066  -4.727  -0.305   4.279  23.633 
+     Min       1Q   Median       3Q      Max 
+-12.5715  -4.7540  -0.5732   4.2435  22.4029 
 
 Coefficients:
-              Estimate Std. Error t value Pr(>|t|)
-(Intercept)    8.29163    5.05049   1.642    0.102
-df$一阶段成绩  0.04244    0.05103   0.832    0.406
+              Estimate Std. Error t value Pr(>|t|)   
+(Intercept)    -7.5935     6.5583  -1.158  0.24808   
+df$一阶段成绩   0.3385     0.1104   3.066  0.00242 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6.1 on 238 degrees of freedom
+  (因为不存在，645个观察量被删除了)
+Multiple R-squared:  0.038,	Adjusted R-squared:  0.03396 
+F-statistic: 9.401 on 1 and 238 DF,  p-value: 0.002419
 ```
-没有相关性
+基本没有相关性
 
 #### 最终成绩~一阶段极差
 ![](Q3最终成绩~一阶段极差.png)
@@ -165,18 +172,18 @@ df$一阶段极差   0.03743    0.21053   0.178    0.859
 ```
 Residuals:
     Min      1Q  Median      3Q     Max 
--53.078  -8.282   9.273  11.390  14.605 
+-82.407 -25.454   8.907  26.207  53.920 
 
 Coefficients:
               Estimate Std. Error t value Pr(>|t|)    
-(Intercept)     6.5293     4.2825   1.525    0.128    
-df$一阶段成绩   2.3239     0.0448  51.871   <2e-16 ***
+(Intercept)   128.5513     6.1809   20.80   <2e-16 ***
+df$一阶段成绩   1.9586     0.1217   16.09   <2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 17.41 on 883 degrees of freedom
-Multiple R-squared:  0.7529,	Adjusted R-squared:  0.7526 
-F-statistic:  2691 on 1 and 883 DF,  p-value: < 2.2e-16
+Residual standard error: 30.81 on 883 degrees of freedom
+Multiple R-squared:  0.2267,	Adjusted R-squared:  0.2258 
+F-statistic: 258.8 on 1 and 883 DF,  p-value: < 2.2e-16
 ```
 大体正相关，但是一阶段成绩比较大的作品里有一批最终成绩相对低，说明一阶段成绩不能完全反应作品品质（可能一阶段成绩是虚高的）
 
@@ -262,7 +269,7 @@ F-statistic:  6102 on 1 and 1498 DF,  p-value: < 2.2e-16
 ------------
 由于题里说了，第二阶段通过复议调整了极差，所以复议前后极差的变化是可以参考的。但我做了`复议后极差~复议前极差`和`复议后极差~复议前标准分1+标准分2+标准分3`两个模型，都没看出相关性，所以参考这条路行不通。
 
-题里要求调整第一阶段不高不低分段的极差，先看下一阶段成绩和极差的相关性：
+题里要求调整第一阶段不高不低分段的极差，先看下一阶段成绩和极差的相关性（来自`数据2.1`）：
 ![](Q3一阶段成绩~极差.png)
 大概中间那段算不高不低，看一下百分位：
 ```
